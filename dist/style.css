@@ -59,7 +59,10 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .media-parallax img { transform: translate3d(0, var(--parallax-y, 0), 0) scale(1.06); will-change: transform; }
 .hero__media { position: absolute; inset: 0; }
 .hero__media img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
-.hero__title { position: absolute; top: 75.28%; left: max(3px, calc((100vw - 1920px) / 2 + 3px)); margin: 0; font-size: min(17.448vw, 335px); font-weight: 700; line-height: .92; letter-spacing: 6.7px; white-space: nowrap; }
+.hero__title { position: absolute; top: 75.28%; left: max(3px, calc((100vw - 1920px) / 2 + 3px)); margin: 0; overflow: hidden; font-size: min(17.448vw, 335px); font-weight: 700; line-height: .92; letter-spacing: 6.7px; white-space: nowrap; }
+.hero__title span { display: inline-block; transform: translateY(115%); will-change: transform; }
+.is-hero-ready .hero__title span { animation: hero-letter-rise .55s var(--ease-editorial) calc(var(--letter-index) * 45ms) both; }
+@keyframes hero-letter-rise { to { transform: translateY(0); } }
 
 .section-pad { padding-inline: max(24px, calc((100vw - 1920px) / 2 + 24px)); }
 .section-head { text-align: center; }
@@ -102,7 +105,8 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .room-hero__title { position: absolute; top: 56.53%; left: max(24px, calc((100vw - 1920px) / 2 + 24px)); overflow: hidden; font-size: min(9.375vw, 180px); font-weight: 600; line-height: min(8.333vw, 160px); letter-spacing: 0; white-space: nowrap; }
 .room-hero__title > span { display: block; clip-path: inset(var(--room-text-clip, 100%) 0 0 0); will-change: clip-path; }
 .room-hero__title--single { top: 72.14%; line-height: min(7.083vw, 136px); }
-.room-index { position: absolute; top: 69.6%; right: max(9.53vw, calc((100vw - 1920px) / 2 + 183px)); width: 159px; height: 179px; overflow: hidden; font: 400 16px/1.6 var(--font-navigation); clip-path: inset(var(--room-text-clip, 100%) 0 0 0); will-change: clip-path; }
+.room-index { position: absolute; top: 69.6%; right: max(9.53vw, calc((100vw - 1920px) / 2 + 183px)); width: 159px; height: 179px; overflow: visible; font: 400 16px/1.6 var(--font-navigation); }
+.room-index__marker, .room-index nav, .room-index .text-link { clip-path: inset(var(--room-text-clip, 100%) 0 0 0); will-change: clip-path; }
 .room-index__marker { position: absolute; top: 3px; left: 0; width: 16px; height: 16px; }
 .room-index__marker--kitchen { top: 31px; }
 .room-index__marker--rest { top: 59px; }
@@ -174,6 +178,9 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .footer-links a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .footer-meta { position: absolute; z-index: 2; right: 26px; bottom: 32px; left: 26px; display: flex; justify-content: space-between; font: 700 12px/1 var(--font-navigation); }
 .footer-wordmark { position: absolute; bottom: -1.5vw; left: 0; font-size: clamp(80px, 17.45vw, 335px); font-weight: 700; line-height: .92; letter-spacing: .01em; white-space: nowrap; }
+.footer-wordmark span { display: inline-block; transform: translateY(115%); will-change: transform; }
+.footer-wordmark.is-visible span { animation: footer-letter-rise .6s var(--ease-editorial) calc(var(--letter-index) * 45ms) both; }
+@keyframes footer-letter-rise { to { transform: translateY(0); } }
 
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s var(--ease-editorial), transform .7s var(--ease-editorial); transition-delay: var(--delay, 0ms); }
 .reveal.is-visible { opacity: 1; transform: translateY(0); }
@@ -258,4 +265,6 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   .reveal { opacity: 1; transform: none; }
   .media-parallax img { transform: none !important; }
   .room-hero.is-current .room-index__marker img { animation: none; }
+  .hero__title span { animation: none; transform: none; }
+  .footer-wordmark span { animation: none; transform: none; }
 }

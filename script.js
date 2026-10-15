@@ -9,8 +9,51 @@ const searchClose = document.querySelector('[data-search-close]');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 window.addEventListener('load', () => {
-  window.setTimeout(() => document.querySelector('.page-loader')?.classList.add('is-done'), reduceMotion ? 0 : 700);
+  const loader = document.querySelector('.page-loader');
+  const showHeroTitle = () => body.classList.add('is-hero-ready');
+
+  if (reduceMotion) {
+    loader?.classList.add('is-done');
+    showHeroTitle();
+    return;
+  }
+
+  window.setTimeout(() => {
+    if (!loader) {
+      showHeroTitle();
+      return;
+    }
+
+    loader.addEventListener('transitionend', (event) => {
+      if (event.propertyName === 'transform') showHeroTitle();
+    }, { once: true });
+    loader.classList.add('is-done');
+    window.setTimeout(showHeroTitle, 1100);
+  }, 700);
 });
+
+document.querySelectorAll('.hero__title span').forEach((letter, index) => {
+  letter.style.setProperty('--letter-index', index);
+});
+
+const footerWordmark = document.querySelector('.footer-wordmark');
+const footerLetters = [...document.querySelectorAll('.footer-wordmark span')];
+footerLetters.forEach((letter, index) => {
+  letter.style.setProperty('--letter-index', footerLetters.length - 1 - index);
+});
+
+if (footerWordmark && 'IntersectionObserver' in window && !reduceMotion) {
+  const footerObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.25 });
+  footerObserver.observe(footerWordmark);
+} else {
+  footerWordmark?.classList.add('is-visible');
+}
 
 let lastScrollY = 0;
 const syncHeader = () => {
@@ -157,7 +200,8 @@ document.querySelectorAll('.room-index nav a').forEach((link) => {
     measureRoomPanels();
     history.pushState(null, '', `#${targetId}`);
     window.scrollTo({
-      top: roomPinPositions[targetIndex],
+      // 핀 시작 후 0.5vh 대기 + 0.5vh 리빌이 끝난 지점으로 이동한다.
+      top: roomPinPositions[targetIndex] + window.innerHeight,
       behavior: reduceMotion ? 'auto' : 'smooth',
     });
   });
