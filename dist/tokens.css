@@ -1,0 +1,91 @@
+:root {
+  /* Figma source: 469QJ2kvXOv0UiTJhcwZvt / 143:952 */
+  --color-white: #fff;
+  --color-black: #000;
+  --color-ink: #222;
+  --color-muted: #666;
+  --color-cream: #fdfbef;
+  --color-glass: rgb(255 255 255 / 50%);
+
+  --color-bg: var(--color-white);
+  --color-bg-subtle: var(--color-cream);
+  --color-text: var(--color-ink);
+  --color-text-strong: var(--color-black);
+  --color-text-muted: var(--color-muted);
+  --color-text-inverse: var(--color-white);
+
+  --font-primary: "Pretendard", Arial, sans-serif;
+  --font-navigation: "Manjari", Arial, sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --text-search: 15px;
+  --text-body: 16px;
+  --text-body-lg: 18px;
+  --text-card-title: 20px;
+  --text-footer-title: 25px;
+  --text-editorial-copy: 30px;
+  --text-section-title: 40px;
+  --text-editorial-title: 60px;
+  --text-brand-display: 80px;
+  --text-room-display: 180px;
+  --text-marquee: 335px;
+
+  --leading-tight: 0.92;
+  --leading-room-display: 160px;
+  --leading-heading: 1.2;
+  --leading-copy: 1.5;
+  --leading-body: 1.6;
+  --tracking-marquee: 6.7px;
+  --tracking-section: -2px;
+  --tracking-label: -1px;
+  --tracking-body: -0.18px;
+
+  --space-2: 2px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-11: 11px;
+  --space-15: 15px;
+  --space-16: 16px;
+  --space-18: 18px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-28: 28px;
+  --space-32: 32px;
+  --space-45: 45px;
+  --space-50: 50px;
+  --space-78: 78px;
+  --space-120: 120px;
+
+  --page-width: 1920px;
+  --page-gutter: 24px;
+  --content-width: 1872px;
+  --grid-3-column: 605px;
+  --grid-3-gap: 28px;
+  --grid-editorial-column: 450px;
+  --grid-editorial-pitch: 474px;
+  --grid-category-item: 130px;
+  --grid-category-gap: 27px;
+  --header-height: 80px;
+
+  /* Figma의 1080px 기준 화면 높이를 svh 비율로 환산 */
+  --section-hero: 100svh;
+  --section-category: 49.54svh;
+  --section-room-hero: 100svh;
+  --section-editorial-rooms: 223.06svh;
+  --section-diy: 132.96svh;
+  --section-membership: 91.02svh;
+  --section-brand-story: 80.56svh;
+  --section-footer: 80.37svh;
+
+  /* Reference-site motion language */
+  --duration-fast: 200ms;
+  --duration-base: 500ms;
+  --duration-medium: 600ms;
+  --duration-slow: 800ms;
+  --duration-reveal: 1000ms;
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-cinematic: cubic-bezier(0.85, 0, 0.15, 1);
+  --radius-pill: 50px;
+}

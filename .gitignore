@@ -1,0 +1,46 @@
+# Design documentation kept locally
+/DESIGN_GUIDELINES.md
+
+# Local reference and temporary assets
+/임시 자산/
+/.openai/
+/.edge-*/
+/.room-scroll-check.mjs
+/.figma-geometry-check.mjs
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Dependencies and build caches
+node_modules/
+.cache/
+.parcel-cache/
+.vite/
+coverage/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.orig
+~$*
